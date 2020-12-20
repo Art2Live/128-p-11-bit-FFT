@@ -19,7 +19,8 @@
 `timescale 1 ns / 1 ns
 
 module Butterflies
-          (In1,
+          ( clk,
+          In1,
            In2,
            In3_re,
            In3_im,
@@ -652,7 +653,7 @@ module Butterflies
            Out128_re,
            Out128_im);
 
-
+  input clk;
   input   In1;  // ufix1
   input   signed [1:0] In2;  // sfix2
   input   signed [1:0] In3_re;  // sfix2
@@ -2833,7 +2834,8 @@ module Butterflies
   wire signed [10:0] alpha128_input_7_step_out128_im;  // sfix11
 
 
-  alpha128_input_1step u_128_input_1step (.In0(In1),  // ufix1
+  alpha128_input_1step u_128_input_1step (.clk(clk),
+                                            .In0(In1),  // ufix1
                                           .In1(In128),  // sfix11_En6
                                           .In2(In129),  // sfix11_En6
                                           .In3(In130),  // sfix11_En6
@@ -3092,7 +3094,7 @@ module Butterflies
                                           .Out128(alpha128_input_1step_out128)  // sfix10_En4
                                           );
 
-  alpha128_input_2_step u_128_input_2_step (.Const_in1(In2),  // sfix2
+  alpha128_input_2_step u_128_input_2_step (.clk(clk),.Const_in1(In2),  // sfix2
                                             .ConstIn2_re(In3_re),  // sfix2
                                             .ConstIn2_im(In3_im),  // sfix2
                                             .In1(alpha128_input_1step_out1),  // sfix10_En4
@@ -3417,7 +3419,7 @@ module Butterflies
                                             .Out128_im(alpha128_input_2_step_out128_im)  // sfix11_En4
                                             );
 
-  alpha128_input_3_step u_128_input_3_step (.Const_in1(In4),  // sfix2
+  alpha128_input_3_step u_128_input_3_step (.clk(clk),.Const_in1(In4),  // sfix2
                                             .ConstIn2_re(In5_re),  // sfix2
                                             .ConstIn2_im(In5_im),  // sfix2
                                             .ConstIn3_re(In6_re),  // sfix2
@@ -3842,7 +3844,7 @@ module Butterflies
                                             .Out128_im(alpha128_input_3_step_out128_im)  // sfix11_En3
                                             );
 
-  alpha128_input_4_step u_128_input_4_step (.In1(alpha128_input_3_step_out1),  // sfix11_En3
+  alpha128_input_4_step u_128_input_4_step (.clk(clk),.In1(alpha128_input_3_step_out1),  // sfix11_En3
                                             .In3_re(alpha128_input_3_step_out2_re),  // sfix11_En3
                                             .In3_im(alpha128_input_3_step_out2_im),  // sfix11_En3
                                             .In5_re(alpha128_input_3_step_out3_re),  // sfix11_En3
@@ -4323,7 +4325,7 @@ module Butterflies
                                             .Out128_im(alpha128_input_4_step_out128_im)  // sfix11_En3
                                             );
 
-  alpha128_input_5_step u_128_input_5_step (.In1(alpha128_input_4_step_out1),  // sfix11_En3
+  alpha128_input_5_step u_128_input_5_step (.clk(clk),.In1(alpha128_input_4_step_out1),  // sfix11_En3
                                             .In3_re(alpha128_input_4_step_out2_re),  // sfix11_En3
                                             .In3_im(alpha128_input_4_step_out2_im),  // sfix11_En3
                                             .In5_re(alpha128_input_4_step_out3_re),  // sfix11_En3
@@ -4844,7 +4846,7 @@ module Butterflies
                                             .Out128_im(alpha128_input_5_step_out128_im)  // sfix12_En3
                                             );
 
-  alpha128_input_6_step u_128_input_6_step (.In1(alpha128_input_5_step_out1),  // sfix12_En3
+  alpha128_input_6_step u_128_input_6_step (.clk(clk),.In1(alpha128_input_5_step_out1),  // sfix12_En3
                                             .In3_re(alpha128_input_5_step_out2_re),  // sfix12_En3
                                             .In3_im(alpha128_input_5_step_out2_im),  // sfix12_En3
                                             .In5_re(alpha128_input_5_step_out3_re),  // sfix12_En3
@@ -5414,7 +5416,7 @@ module Butterflies
                                             .Out128_im(alpha128_input_6_step_out128_im)  // sfix13_En3
                                             );
 
-  alpha128_input_7_step u_128_input_7_step (.In3(In64),  // sfix10_En8
+  alpha128_input_7_step u_128_input_7_step (.clk(clk),.In3(In64),  // sfix10_En8
                                             .In1_re(In65_re),  // sfix10_En8
                                             .In1_im(In65_im),  // sfix10_En8
                                             .In2_re(In66_re),  // sfix10_En8

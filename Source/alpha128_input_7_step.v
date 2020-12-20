@@ -19,7 +19,7 @@
 `timescale 1 ns / 1 ns
 
 module alpha128_input_7_step
-          (In3,
+          (clk,In3,
            In1_re,
            In1_im,
            In2_re,
@@ -659,7 +659,7 @@ module alpha128_input_7_step
            Out128_re,
            Out128_im);
 
-
+    input clk;
   input   signed [9:0] In3;  // sfix10_En8
   input   signed [9:0] In1_re;  // sfix10_En8
   input   signed [9:0] In1_im;  // sfix10_En8
@@ -1043,262 +1043,262 @@ module alpha128_input_7_step
   input   signed [12:0] In190_im;  // sfix13_En3
   input   signed [12:0] In192_re;  // sfix13_En3
   input   signed [12:0] In192_im;  // sfix13_En3
-  output  signed [10:0] Out1_re;  // sfix11
-  output  signed [10:0] Out1_im;  // sfix11
-  output  signed [10:0] Out3_re;  // sfix11
-  output  signed [10:0] Out3_im;  // sfix11
-  output  signed [10:0] Out5_re;  // sfix11
-  output  signed [10:0] Out5_im;  // sfix11
-  output  signed [10:0] Out7_re;  // sfix11
-  output  signed [10:0] Out7_im;  // sfix11
-  output  signed [10:0] Out9_re;  // sfix11
-  output  signed [10:0] Out9_im;  // sfix11
-  output  signed [10:0] Out11_re;  // sfix11
-  output  signed [10:0] Out11_im;  // sfix11
-  output  signed [10:0] Out13_re;  // sfix11
-  output  signed [10:0] Out13_im;  // sfix11
-  output  signed [10:0] Out15_re;  // sfix11
-  output  signed [10:0] Out15_im;  // sfix11
-  output  signed [10:0] Out17_re;  // sfix11
-  output  signed [10:0] Out17_im;  // sfix11
-  output  signed [10:0] Out19_re;  // sfix11
-  output  signed [10:0] Out19_im;  // sfix11
-  output  signed [10:0] Out21_re;  // sfix11
-  output  signed [10:0] Out21_im;  // sfix11
-  output  signed [10:0] Out23_re;  // sfix11
-  output  signed [10:0] Out23_im;  // sfix11
-  output  signed [10:0] Out25_re;  // sfix11
-  output  signed [10:0] Out25_im;  // sfix11
-  output  signed [10:0] Out27_re;  // sfix11
-  output  signed [10:0] Out27_im;  // sfix11
-  output  signed [10:0] Out29_re;  // sfix11
-  output  signed [10:0] Out29_im;  // sfix11
-  output  signed [10:0] Out31_re;  // sfix11
-  output  signed [10:0] Out31_im;  // sfix11
-  output  signed [10:0] Out33_re;  // sfix11
-  output  signed [10:0] Out33_im;  // sfix11
-  output  signed [10:0] Out35_re;  // sfix11
-  output  signed [10:0] Out35_im;  // sfix11
-  output  signed [10:0] Out37_re;  // sfix11
-  output  signed [10:0] Out37_im;  // sfix11
-  output  signed [10:0] Out39_re;  // sfix11
-  output  signed [10:0] Out39_im;  // sfix11
-  output  signed [10:0] Out41_re;  // sfix11
-  output  signed [10:0] Out41_im;  // sfix11
-  output  signed [10:0] Out43_re;  // sfix11
-  output  signed [10:0] Out43_im;  // sfix11
-  output  signed [10:0] Out45_re;  // sfix11
-  output  signed [10:0] Out45_im;  // sfix11
-  output  signed [10:0] Out47_re;  // sfix11
-  output  signed [10:0] Out47_im;  // sfix11
-  output  signed [10:0] Out49_re;  // sfix11
-  output  signed [10:0] Out49_im;  // sfix11
-  output  signed [10:0] Out51_re;  // sfix11
-  output  signed [10:0] Out51_im;  // sfix11
-  output  signed [10:0] Out53_re;  // sfix11
-  output  signed [10:0] Out53_im;  // sfix11
-  output  signed [10:0] Out55_re;  // sfix11
-  output  signed [10:0] Out55_im;  // sfix11
-  output  signed [10:0] Out57_re;  // sfix11
-  output  signed [10:0] Out57_im;  // sfix11
-  output  signed [10:0] Out59_re;  // sfix11
-  output  signed [10:0] Out59_im;  // sfix11
-  output  signed [10:0] Out61_re;  // sfix11
-  output  signed [10:0] Out61_im;  // sfix11
-  output  signed [10:0] Out63_re;  // sfix11
-  output  signed [10:0] Out63_im;  // sfix11
-  output  signed [10:0] Out65_re;  // sfix11
-  output  signed [10:0] Out65_im;  // sfix11
-  output  signed [10:0] Out67_re;  // sfix11
-  output  signed [10:0] Out67_im;  // sfix11
-  output  signed [10:0] Out69_re;  // sfix11
-  output  signed [10:0] Out69_im;  // sfix11
-  output  signed [10:0] Out71_re;  // sfix11
-  output  signed [10:0] Out71_im;  // sfix11
-  output  signed [10:0] Out73_re;  // sfix11
-  output  signed [10:0] Out73_im;  // sfix11
-  output  signed [10:0] Out75_re;  // sfix11
-  output  signed [10:0] Out75_im;  // sfix11
-  output  signed [10:0] Out77_re;  // sfix11
-  output  signed [10:0] Out77_im;  // sfix11
-  output  signed [10:0] Out79_re;  // sfix11
-  output  signed [10:0] Out79_im;  // sfix11
-  output  signed [10:0] Out81_re;  // sfix11
-  output  signed [10:0] Out81_im;  // sfix11
-  output  signed [10:0] Out83_re;  // sfix11
-  output  signed [10:0] Out83_im;  // sfix11
-  output  signed [10:0] Out85_re;  // sfix11
-  output  signed [10:0] Out85_im;  // sfix11
-  output  signed [10:0] Out87_re;  // sfix11
-  output  signed [10:0] Out87_im;  // sfix11
-  output  signed [10:0] Out89_re;  // sfix11
-  output  signed [10:0] Out89_im;  // sfix11
-  output  signed [10:0] Out91_re;  // sfix11
-  output  signed [10:0] Out91_im;  // sfix11
-  output  signed [10:0] Out93_re;  // sfix11
-  output  signed [10:0] Out93_im;  // sfix11
-  output  signed [10:0] Out95_re;  // sfix11
-  output  signed [10:0] Out95_im;  // sfix11
-  output  signed [10:0] Out97_re;  // sfix11
-  output  signed [10:0] Out97_im;  // sfix11
-  output  signed [10:0] Out99_re;  // sfix11
-  output  signed [10:0] Out99_im;  // sfix11
-  output  signed [10:0] Out101_re;  // sfix11
-  output  signed [10:0] Out101_im;  // sfix11
-  output  signed [10:0] Out103_re;  // sfix11
-  output  signed [10:0] Out103_im;  // sfix11
-  output  signed [10:0] Out105_re;  // sfix11
-  output  signed [10:0] Out105_im;  // sfix11
-  output  signed [10:0] Out107_re;  // sfix11
-  output  signed [10:0] Out107_im;  // sfix11
-  output  signed [10:0] Out109_re;  // sfix11
-  output  signed [10:0] Out109_im;  // sfix11
-  output  signed [10:0] Out111_re;  // sfix11
-  output  signed [10:0] Out111_im;  // sfix11
-  output  signed [10:0] Out113_re;  // sfix11
-  output  signed [10:0] Out113_im;  // sfix11
-  output  signed [10:0] Out115_re;  // sfix11
-  output  signed [10:0] Out115_im;  // sfix11
-  output  signed [10:0] Out117_re;  // sfix11
-  output  signed [10:0] Out117_im;  // sfix11
-  output  signed [10:0] Out119_re;  // sfix11
-  output  signed [10:0] Out119_im;  // sfix11
-  output  signed [10:0] Out121_re;  // sfix11
-  output  signed [10:0] Out121_im;  // sfix11
-  output  signed [10:0] Out123_re;  // sfix11
-  output  signed [10:0] Out123_im;  // sfix11
-  output  signed [10:0] Out125_re;  // sfix11
-  output  signed [10:0] Out125_im;  // sfix11
-  output  signed [10:0] Out127_re;  // sfix11
-  output  signed [10:0] Out127_im;  // sfix11
-  output  signed [10:0] Out2_re;  // sfix11
-  output  signed [10:0] Out2_im;  // sfix11
-  output  signed [10:0] Out4_re;  // sfix11
-  output  signed [10:0] Out4_im;  // sfix11
-  output  signed [10:0] Out6_re;  // sfix11
-  output  signed [10:0] Out6_im;  // sfix11
-  output  signed [10:0] Out8_re;  // sfix11
-  output  signed [10:0] Out8_im;  // sfix11
-  output  signed [10:0] Out10_re;  // sfix11
-  output  signed [10:0] Out10_im;  // sfix11
-  output  signed [10:0] Out12_re;  // sfix11
-  output  signed [10:0] Out12_im;  // sfix11
-  output  signed [10:0] Out14_re;  // sfix11
-  output  signed [10:0] Out14_im;  // sfix11
-  output  signed [10:0] Out16_re;  // sfix11
-  output  signed [10:0] Out16_im;  // sfix11
-  output  signed [10:0] Out18_re;  // sfix11
-  output  signed [10:0] Out18_im;  // sfix11
-  output  signed [10:0] Out20_re;  // sfix11
-  output  signed [10:0] Out20_im;  // sfix11
-  output  signed [10:0] Out22_re;  // sfix11
-  output  signed [10:0] Out22_im;  // sfix11
-  output  signed [10:0] Out24_re;  // sfix11
-  output  signed [10:0] Out24_im;  // sfix11
-  output  signed [10:0] Out26_re;  // sfix11
-  output  signed [10:0] Out26_im;  // sfix11
-  output  signed [10:0] Out28_re;  // sfix11
-  output  signed [10:0] Out28_im;  // sfix11
-  output  signed [10:0] Out30_re;  // sfix11
-  output  signed [10:0] Out30_im;  // sfix11
-  output  signed [10:0] Out32_re;  // sfix11
-  output  signed [10:0] Out32_im;  // sfix11
-  output  signed [10:0] Out34_re;  // sfix11
-  output  signed [10:0] Out34_im;  // sfix11
-  output  signed [10:0] Out36_re;  // sfix11
-  output  signed [10:0] Out36_im;  // sfix11
-  output  signed [10:0] Out38_re;  // sfix11
-  output  signed [10:0] Out38_im;  // sfix11
-  output  signed [10:0] Out40_re;  // sfix11
-  output  signed [10:0] Out40_im;  // sfix11
-  output  signed [10:0] Out42_re;  // sfix11
-  output  signed [10:0] Out42_im;  // sfix11
-  output  signed [10:0] Out44_re;  // sfix11
-  output  signed [10:0] Out44_im;  // sfix11
-  output  signed [10:0] Out46_re;  // sfix11
-  output  signed [10:0] Out46_im;  // sfix11
-  output  signed [10:0] Out48_re;  // sfix11
-  output  signed [10:0] Out48_im;  // sfix11
-  output  signed [10:0] Out50_re;  // sfix11
-  output  signed [10:0] Out50_im;  // sfix11
-  output  signed [10:0] Out52_re;  // sfix11
-  output  signed [10:0] Out52_im;  // sfix11
-  output  signed [10:0] Out54_re;  // sfix11
-  output  signed [10:0] Out54_im;  // sfix11
-  output  signed [10:0] Out56_re;  // sfix11
-  output  signed [10:0] Out56_im;  // sfix11
-  output  signed [10:0] Out58_re;  // sfix11
-  output  signed [10:0] Out58_im;  // sfix11
-  output  signed [10:0] Out60_re;  // sfix11
-  output  signed [10:0] Out60_im;  // sfix11
-  output  signed [10:0] Out62_re;  // sfix11
-  output  signed [10:0] Out62_im;  // sfix11
-  output  signed [10:0] Out64_re;  // sfix11
-  output  signed [10:0] Out64_im;  // sfix11
-  output  signed [10:0] Out66_re;  // sfix11
-  output  signed [10:0] Out66_im;  // sfix11
-  output  signed [10:0] Out68_re;  // sfix11
-  output  signed [10:0] Out68_im;  // sfix11
-  output  signed [10:0] Out70_re;  // sfix11
-  output  signed [10:0] Out70_im;  // sfix11
-  output  signed [10:0] Out72_re;  // sfix11
-  output  signed [10:0] Out72_im;  // sfix11
-  output  signed [10:0] Out74_re;  // sfix11
-  output  signed [10:0] Out74_im;  // sfix11
-  output  signed [10:0] Out76_re;  // sfix11
-  output  signed [10:0] Out76_im;  // sfix11
-  output  signed [10:0] Out78_re;  // sfix11
-  output  signed [10:0] Out78_im;  // sfix11
-  output  signed [10:0] Out80_re;  // sfix11
-  output  signed [10:0] Out80_im;  // sfix11
-  output  signed [10:0] Out82_re;  // sfix11
-  output  signed [10:0] Out82_im;  // sfix11
-  output  signed [10:0] Out84_re;  // sfix11
-  output  signed [10:0] Out84_im;  // sfix11
-  output  signed [10:0] Out86_re;  // sfix11
-  output  signed [10:0] Out86_im;  // sfix11
-  output  signed [10:0] Out88_re;  // sfix11
-  output  signed [10:0] Out88_im;  // sfix11
-  output  signed [10:0] Out90_re;  // sfix11
-  output  signed [10:0] Out90_im;  // sfix11
-  output  signed [10:0] Out92_re;  // sfix11
-  output  signed [10:0] Out92_im;  // sfix11
-  output  signed [10:0] Out94_re;  // sfix11
-  output  signed [10:0] Out94_im;  // sfix11
-  output  signed [10:0] Out96_re;  // sfix11
-  output  signed [10:0] Out96_im;  // sfix11
-  output  signed [10:0] Out98_re;  // sfix11
-  output  signed [10:0] Out98_im;  // sfix11
-  output  signed [10:0] Out100_re;  // sfix11
-  output  signed [10:0] Out100_im;  // sfix11
-  output  signed [10:0] Out102_re;  // sfix11
-  output  signed [10:0] Out102_im;  // sfix11
-  output  signed [10:0] Out104_re;  // sfix11
-  output  signed [10:0] Out104_im;  // sfix11
-  output  signed [10:0] Out106_re;  // sfix11
-  output  signed [10:0] Out106_im;  // sfix11
-  output  signed [10:0] Out108_re;  // sfix11
-  output  signed [10:0] Out108_im;  // sfix11
-  output  signed [10:0] Out110_re;  // sfix11
-  output  signed [10:0] Out110_im;  // sfix11
-  output  signed [10:0] Out112_re;  // sfix11
-  output  signed [10:0] Out112_im;  // sfix11
-  output  signed [10:0] Out114_re;  // sfix11
-  output  signed [10:0] Out114_im;  // sfix11
-  output  signed [10:0] Out116_re;  // sfix11
-  output  signed [10:0] Out116_im;  // sfix11
-  output  signed [10:0] Out118_re;  // sfix11
-  output  signed [10:0] Out118_im;  // sfix11
-  output  signed [10:0] Out120_re;  // sfix11
-  output  signed [10:0] Out120_im;  // sfix11
-  output  signed [10:0] Out122_re;  // sfix11
-  output  signed [10:0] Out122_im;  // sfix11
-  output  signed [10:0] Out124_re;  // sfix11
-  output  signed [10:0] Out124_im;  // sfix11
-  output  signed [10:0] Out126_re;  // sfix11
-  output  signed [10:0] Out126_im;  // sfix11
-  output  signed [10:0] Out128_re;  // sfix11
-  output  signed [10:0] Out128_im;  // sfix11
+  output reg  signed [10:0] Out1_re;  // sfix11
+  output reg  signed [10:0] Out1_im;  // sfix11
+  output reg  signed [10:0] Out3_re;  // sfix11
+  output reg  signed [10:0] Out3_im;  // sfix11
+  output reg  signed [10:0] Out5_re;  // sfix11
+  output reg  signed [10:0] Out5_im;  // sfix11
+  output reg  signed [10:0] Out7_re;  // sfix11
+  output reg  signed [10:0] Out7_im;  // sfix11
+  output reg  signed [10:0] Out9_re;  // sfix11
+  output reg  signed [10:0] Out9_im;  // sfix11
+  output reg  signed [10:0] Out11_re;  // sfix11
+  output reg  signed [10:0] Out11_im;  // sfix11
+  output reg  signed [10:0] Out13_re;  // sfix11
+  output reg  signed [10:0] Out13_im;  // sfix11
+  output reg  signed [10:0] Out15_re;  // sfix11
+  output reg  signed [10:0] Out15_im;  // sfix11
+  output reg  signed [10:0] Out17_re;  // sfix11
+  output reg  signed [10:0] Out17_im;  // sfix11
+  output reg  signed [10:0] Out19_re;  // sfix11
+  output reg  signed [10:0] Out19_im;  // sfix11
+  output reg  signed [10:0] Out21_re;  // sfix11
+  output reg  signed [10:0] Out21_im;  // sfix11
+  output reg  signed [10:0] Out23_re;  // sfix11
+  output reg  signed [10:0] Out23_im;  // sfix11
+  output reg  signed [10:0] Out25_re;  // sfix11
+  output reg  signed [10:0] Out25_im;  // sfix11
+  output reg  signed [10:0] Out27_re;  // sfix11
+  output reg  signed [10:0] Out27_im;  // sfix11
+  output reg  signed [10:0] Out29_re;  // sfix11
+  output reg  signed [10:0] Out29_im;  // sfix11
+  output reg  signed [10:0] Out31_re;  // sfix11
+  output reg  signed [10:0] Out31_im;  // sfix11
+  output reg  signed [10:0] Out33_re;  // sfix11
+  output reg  signed [10:0] Out33_im;  // sfix11
+  output reg  signed [10:0] Out35_re;  // sfix11
+  output reg  signed [10:0] Out35_im;  // sfix11
+  output reg  signed [10:0] Out37_re;  // sfix11
+  output reg  signed [10:0] Out37_im;  // sfix11
+  output reg  signed [10:0] Out39_re;  // sfix11
+  output reg  signed [10:0] Out39_im;  // sfix11
+  output reg  signed [10:0] Out41_re;  // sfix11
+  output reg  signed [10:0] Out41_im;  // sfix11
+  output reg  signed [10:0] Out43_re;  // sfix11
+  output reg  signed [10:0] Out43_im;  // sfix11
+  output reg  signed [10:0] Out45_re;  // sfix11
+  output reg  signed [10:0] Out45_im;  // sfix11
+  output reg  signed [10:0] Out47_re;  // sfix11
+  output reg  signed [10:0] Out47_im;  // sfix11
+  output reg  signed [10:0] Out49_re;  // sfix11
+  output reg  signed [10:0] Out49_im;  // sfix11
+  output reg  signed [10:0] Out51_re;  // sfix11
+  output reg  signed [10:0] Out51_im;  // sfix11
+  output reg  signed [10:0] Out53_re;  // sfix11
+  output reg  signed [10:0] Out53_im;  // sfix11
+  output reg  signed [10:0] Out55_re;  // sfix11
+  output reg  signed [10:0] Out55_im;  // sfix11
+  output reg  signed [10:0] Out57_re;  // sfix11
+  output reg  signed [10:0] Out57_im;  // sfix11
+  output reg  signed [10:0] Out59_re;  // sfix11
+  output reg  signed [10:0] Out59_im;  // sfix11
+  output reg  signed [10:0] Out61_re;  // sfix11
+  output reg  signed [10:0] Out61_im;  // sfix11
+  output reg  signed [10:0] Out63_re;  // sfix11
+  output reg  signed [10:0] Out63_im;  // sfix11
+  output reg  signed [10:0] Out65_re;  // sfix11
+  output reg  signed [10:0] Out65_im;  // sfix11
+  output reg  signed [10:0] Out67_re;  // sfix11
+  output reg  signed [10:0] Out67_im;  // sfix11
+  output reg  signed [10:0] Out69_re;  // sfix11
+  output reg  signed [10:0] Out69_im;  // sfix11
+  output reg  signed [10:0] Out71_re;  // sfix11
+  output reg  signed [10:0] Out71_im;  // sfix11
+  output reg  signed [10:0] Out73_re;  // sfix11
+  output reg  signed [10:0] Out73_im;  // sfix11
+  output reg  signed [10:0] Out75_re;  // sfix11
+  output reg  signed [10:0] Out75_im;  // sfix11
+  output reg  signed [10:0] Out77_re;  // sfix11
+  output reg  signed [10:0] Out77_im;  // sfix11
+  output reg  signed [10:0] Out79_re;  // sfix11
+  output reg  signed [10:0] Out79_im;  // sfix11
+  output reg  signed [10:0] Out81_re;  // sfix11
+  output reg  signed [10:0] Out81_im;  // sfix11
+  output reg  signed [10:0] Out83_re;  // sfix11
+  output reg  signed [10:0] Out83_im;  // sfix11
+  output reg  signed [10:0] Out85_re;  // sfix11
+  output reg  signed [10:0] Out85_im;  // sfix11
+  output reg  signed [10:0] Out87_re;  // sfix11
+  output reg  signed [10:0] Out87_im;  // sfix11
+  output reg  signed [10:0] Out89_re;  // sfix11
+  output reg  signed [10:0] Out89_im;  // sfix11
+  output reg  signed [10:0] Out91_re;  // sfix11
+  output reg  signed [10:0] Out91_im;  // sfix11
+  output reg  signed [10:0] Out93_re;  // sfix11
+  output reg  signed [10:0] Out93_im;  // sfix11
+  output reg  signed [10:0] Out95_re;  // sfix11
+  output reg  signed [10:0] Out95_im;  // sfix11
+  output reg  signed [10:0] Out97_re;  // sfix11
+  output reg  signed [10:0] Out97_im;  // sfix11
+  output reg  signed [10:0] Out99_re;  // sfix11
+  output reg  signed [10:0] Out99_im;  // sfix11
+  output reg  signed [10:0] Out101_re;  // sfix11
+  output reg  signed [10:0] Out101_im;  // sfix11
+  output reg  signed [10:0] Out103_re;  // sfix11
+  output reg  signed [10:0] Out103_im;  // sfix11
+  output reg  signed [10:0] Out105_re;  // sfix11
+  output reg  signed [10:0] Out105_im;  // sfix11
+  output reg  signed [10:0] Out107_re;  // sfix11
+  output reg  signed [10:0] Out107_im;  // sfix11
+  output reg  signed [10:0] Out109_re;  // sfix11
+  output reg  signed [10:0] Out109_im;  // sfix11
+  output reg  signed [10:0] Out111_re;  // sfix11
+  output reg  signed [10:0] Out111_im;  // sfix11
+  output reg  signed [10:0] Out113_re;  // sfix11
+  output reg  signed [10:0] Out113_im;  // sfix11
+  output reg  signed [10:0] Out115_re;  // sfix11
+  output reg  signed [10:0] Out115_im;  // sfix11
+  output reg  signed [10:0] Out117_re;  // sfix11
+  output reg  signed [10:0] Out117_im;  // sfix11
+  output reg  signed [10:0] Out119_re;  // sfix11
+  output reg  signed [10:0] Out119_im;  // sfix11
+  output reg  signed [10:0] Out121_re;  // sfix11
+  output reg  signed [10:0] Out121_im;  // sfix11
+  output reg  signed [10:0] Out123_re;  // sfix11
+  output reg  signed [10:0] Out123_im;  // sfix11
+  output reg  signed [10:0] Out125_re;  // sfix11
+  output reg  signed [10:0] Out125_im;  // sfix11
+  output reg  signed [10:0] Out127_re;  // sfix11
+  output reg  signed [10:0] Out127_im;  // sfix11
+  output reg  signed [10:0] Out2_re;  // sfix11
+  output reg  signed [10:0] Out2_im;  // sfix11
+  output reg  signed [10:0] Out4_re;  // sfix11
+  output reg  signed [10:0] Out4_im;  // sfix11
+  output reg  signed [10:0] Out6_re;  // sfix11
+  output reg  signed [10:0] Out6_im;  // sfix11
+  output reg  signed [10:0] Out8_re;  // sfix11
+  output reg  signed [10:0] Out8_im;  // sfix11
+  output reg  signed [10:0] Out10_re;  // sfix11
+  output reg  signed [10:0] Out10_im;  // sfix11
+  output reg  signed [10:0] Out12_re;  // sfix11
+  output reg  signed [10:0] Out12_im;  // sfix11
+  output reg  signed [10:0] Out14_re;  // sfix11
+  output reg  signed [10:0] Out14_im;  // sfix11
+  output reg  signed [10:0] Out16_re;  // sfix11
+  output reg  signed [10:0] Out16_im;  // sfix11
+  output reg  signed [10:0] Out18_re;  // sfix11
+  output reg  signed [10:0] Out18_im;  // sfix11
+  output reg  signed [10:0] Out20_re;  // sfix11
+  output reg  signed [10:0] Out20_im;  // sfix11
+  output reg  signed [10:0] Out22_re;  // sfix11
+  output reg  signed [10:0] Out22_im;  // sfix11
+  output reg  signed [10:0] Out24_re;  // sfix11
+  output reg  signed [10:0] Out24_im;  // sfix11
+  output reg  signed [10:0] Out26_re;  // sfix11
+  output reg  signed [10:0] Out26_im;  // sfix11
+  output reg  signed [10:0] Out28_re;  // sfix11
+  output reg  signed [10:0] Out28_im;  // sfix11
+  output reg  signed [10:0] Out30_re;  // sfix11
+  output reg  signed [10:0] Out30_im;  // sfix11
+  output reg  signed [10:0] Out32_re;  // sfix11
+  output reg  signed [10:0] Out32_im;  // sfix11
+  output reg  signed [10:0] Out34_re;  // sfix11
+  output reg  signed [10:0] Out34_im;  // sfix11
+  output reg  signed [10:0] Out36_re;  // sfix11
+  output reg  signed [10:0] Out36_im;  // sfix11
+  output reg  signed [10:0] Out38_re;  // sfix11
+  output reg  signed [10:0] Out38_im;  // sfix11
+  output reg  signed [10:0] Out40_re;  // sfix11
+  output reg  signed [10:0] Out40_im;  // sfix11
+  output reg  signed [10:0] Out42_re;  // sfix11
+  output reg  signed [10:0] Out42_im;  // sfix11
+  output reg  signed [10:0] Out44_re;  // sfix11
+  output reg  signed [10:0] Out44_im;  // sfix11
+  output reg  signed [10:0] Out46_re;  // sfix11
+  output reg  signed [10:0] Out46_im;  // sfix11
+  output reg  signed [10:0] Out48_re;  // sfix11
+  output reg  signed [10:0] Out48_im;  // sfix11
+  output reg  signed [10:0] Out50_re;  // sfix11
+  output reg  signed [10:0] Out50_im;  // sfix11
+  output reg  signed [10:0] Out52_re;  // sfix11
+  output reg  signed [10:0] Out52_im;  // sfix11
+  output reg  signed [10:0] Out54_re;  // sfix11
+  output reg  signed [10:0] Out54_im;  // sfix11
+  output reg  signed [10:0] Out56_re;  // sfix11
+  output reg  signed [10:0] Out56_im;  // sfix11
+  output reg  signed [10:0] Out58_re;  // sfix11
+  output reg  signed [10:0] Out58_im;  // sfix11
+  output reg  signed [10:0] Out60_re;  // sfix11
+  output reg  signed [10:0] Out60_im;  // sfix11
+  output reg  signed [10:0] Out62_re;  // sfix11
+  output reg  signed [10:0] Out62_im;  // sfix11
+  output reg  signed [10:0] Out64_re;  // sfix11
+  output reg  signed [10:0] Out64_im;  // sfix11
+  output reg  signed [10:0] Out66_re;  // sfix11
+  output reg  signed [10:0] Out66_im;  // sfix11
+  output reg  signed [10:0] Out68_re;  // sfix11
+  output reg  signed [10:0] Out68_im;  // sfix11
+  output reg  signed [10:0] Out70_re;  // sfix11
+  output reg  signed [10:0] Out70_im;  // sfix11
+  output reg  signed [10:0] Out72_re;  // sfix11
+  output reg  signed [10:0] Out72_im;  // sfix11
+  output reg  signed [10:0] Out74_re;  // sfix11
+  output reg  signed [10:0] Out74_im;  // sfix11
+  output reg  signed [10:0] Out76_re;  // sfix11
+  output reg  signed [10:0] Out76_im;  // sfix11
+  output reg  signed [10:0] Out78_re;  // sfix11
+  output reg  signed [10:0] Out78_im;  // sfix11
+  output reg  signed [10:0] Out80_re;  // sfix11
+  output reg  signed [10:0] Out80_im;  // sfix11
+  output reg  signed [10:0] Out82_re;  // sfix11
+  output reg  signed [10:0] Out82_im;  // sfix11
+  output reg  signed [10:0] Out84_re;  // sfix11
+  output reg  signed [10:0] Out84_im;  // sfix11
+  output reg  signed [10:0] Out86_re;  // sfix11
+  output reg  signed [10:0] Out86_im;  // sfix11
+  output reg  signed [10:0] Out88_re;  // sfix11
+  output reg  signed [10:0] Out88_im;  // sfix11
+  output reg  signed [10:0] Out90_re;  // sfix11
+  output reg  signed [10:0] Out90_im;  // sfix11
+  output reg  signed [10:0] Out92_re;  // sfix11
+  output reg  signed [10:0] Out92_im;  // sfix11
+  output reg  signed [10:0] Out94_re;  // sfix11
+  output reg  signed [10:0] Out94_im;  // sfix11
+  output reg  signed [10:0] Out96_re;  // sfix11
+  output reg  signed [10:0] Out96_im;  // sfix11
+  output reg  signed [10:0] Out98_re;  // sfix11
+  output reg  signed [10:0] Out98_im;  // sfix11
+  output reg  signed [10:0] Out100_re;  // sfix11
+  output reg  signed [10:0] Out100_im;  // sfix11
+  output reg  signed [10:0] Out102_re;  // sfix11
+  output reg  signed [10:0] Out102_im;  // sfix11
+  output reg  signed [10:0] Out104_re;  // sfix11
+  output reg  signed [10:0] Out104_im;  // sfix11
+  output reg  signed [10:0] Out106_re;  // sfix11
+  output reg  signed [10:0] Out106_im;  // sfix11
+  output reg  signed [10:0] Out108_re;  // sfix11
+  output reg  signed [10:0] Out108_im;  // sfix11
+  output reg  signed [10:0] Out110_re;  // sfix11
+  output reg  signed [10:0] Out110_im;  // sfix11
+  output reg  signed [10:0] Out112_re;  // sfix11
+  output reg  signed [10:0] Out112_im;  // sfix11
+  output reg  signed [10:0] Out114_re;  // sfix11
+  output reg  signed [10:0] Out114_im;  // sfix11
+  output reg  signed [10:0] Out116_re;  // sfix11
+  output reg  signed [10:0] Out116_im;  // sfix11
+  output reg  signed [10:0] Out118_re;  // sfix11
+  output reg  signed [10:0] Out118_im;  // sfix11
+  output reg  signed [10:0] Out120_re;  // sfix11
+  output reg  signed [10:0] Out120_im;  // sfix11
+  output reg  signed [10:0] Out122_re;  // sfix11
+  output reg  signed [10:0] Out122_im;  // sfix11
+  output reg  signed [10:0] Out124_re;  // sfix11
+  output reg  signed [10:0] Out124_im;  // sfix11
+  output reg  signed [10:0] Out126_re;  // sfix11
+  output reg  signed [10:0] Out126_im;  // sfix11
+  output reg  signed [10:0] Out128_re;  // sfix11
+  output reg  signed [10:0] Out128_im;  // sfix11
 
 
   wire signed [10:0] SeventhStage_out1_re;  // sfix11
@@ -1570,9 +1570,7 @@ module alpha128_input_7_step
                                .Out2_im(SeventhStage_out2_im)  // sfix11
                                );
 
-  assign Out1_re = SeventhStage_out1_re;
 
-  assign Out1_im = SeventhStage_out1_im;
 
   SeventhStage1 u_SeventhStage1 (.In1_re(In67_re),  // sfix13_En3
                                  .In1_im(In67_im),  // sfix13_En3
@@ -1586,9 +1584,7 @@ module alpha128_input_7_step
                                  .Out2_im(SeventhStage1_out2_im)  // sfix11
                                  );
 
-  assign Out3_re = SeventhStage1_out1_re;
 
-  assign Out3_im = SeventhStage1_out1_im;
 
   SeventhStage2 u_SeventhStage2 (.In1_re(In69_re),  // sfix13_En3
                                  .In1_im(In69_im),  // sfix13_En3
@@ -1602,9 +1598,7 @@ module alpha128_input_7_step
                                  .Out2_im(SeventhStage2_out2_im)  // sfix11
                                  );
 
-  assign Out5_re = SeventhStage2_out1_re;
 
-  assign Out5_im = SeventhStage2_out1_im;
 
   SeventhStage3 u_SeventhStage3 (.In1_re(In71_re),  // sfix13_En3
                                  .In1_im(In71_im),  // sfix13_En3
@@ -1618,9 +1612,7 @@ module alpha128_input_7_step
                                  .Out2_im(SeventhStage3_out2_im)  // sfix11
                                  );
 
-  assign Out7_re = SeventhStage3_out1_re;
 
-  assign Out7_im = SeventhStage3_out1_im;
 
   SeventhStage4 u_SeventhStage4 (.In1_re(In73_re),  // sfix13_En3
                                  .In1_im(In73_im),  // sfix13_En3
@@ -1634,9 +1626,7 @@ module alpha128_input_7_step
                                  .Out2_im(SeventhStage4_out2_im)  // sfix11
                                  );
 
-  assign Out9_re = SeventhStage4_out1_re;
 
-  assign Out9_im = SeventhStage4_out1_im;
 
   SeventhStage5 u_SeventhStage5 (.In1_re(In75_re),  // sfix13_En3
                                  .In1_im(In75_im),  // sfix13_En3
@@ -1650,9 +1640,7 @@ module alpha128_input_7_step
                                  .Out2_im(SeventhStage5_out2_im)  // sfix11
                                  );
 
-  assign Out11_re = SeventhStage5_out1_re;
 
-  assign Out11_im = SeventhStage5_out1_im;
 
   SeventhStage6 u_SeventhStage6 (.In1_re(In77_re),  // sfix13_En3
                                  .In1_im(In77_im),  // sfix13_En3
@@ -1666,9 +1654,7 @@ module alpha128_input_7_step
                                  .Out2_im(SeventhStage6_out2_im)  // sfix11
                                  );
 
-  assign Out13_re = SeventhStage6_out1_re;
 
-  assign Out13_im = SeventhStage6_out1_im;
 
   SeventhStage7 u_SeventhStage7 (.In1_re(In79_re),  // sfix13_En3
                                  .In1_im(In79_im),  // sfix13_En3
@@ -1682,9 +1668,7 @@ module alpha128_input_7_step
                                  .Out2_im(SeventhStage7_out2_im)  // sfix11
                                  );
 
-  assign Out15_re = SeventhStage7_out1_re;
 
-  assign Out15_im = SeventhStage7_out1_im;
 
   SeventhStage8 u_SeventhStage8 (.In1_re(In83_re),  // sfix13_En3
                                  .In1_im(In83_im),  // sfix13_En3
@@ -1698,9 +1682,7 @@ module alpha128_input_7_step
                                  .Out2_im(SeventhStage8_out2_im)  // sfix11
                                  );
 
-  assign Out17_re = SeventhStage8_out1_re;
 
-  assign Out17_im = SeventhStage8_out1_im;
 
   SeventhStage9 u_SeventhStage9 (.In1_re(In85_re),  // sfix13_En3
                                  .In1_im(In85_im),  // sfix13_En3
@@ -1714,9 +1696,7 @@ module alpha128_input_7_step
                                  .Out2_im(SeventhStage9_out2_im)  // sfix11
                                  );
 
-  assign Out19_re = SeventhStage9_out1_re;
 
-  assign Out19_im = SeventhStage9_out1_im;
 
   SeventhStage10 u_SeventhStage10 (.In1_re(In87_re),  // sfix13_En3
                                    .In1_im(In87_im),  // sfix13_En3
@@ -1730,9 +1710,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage10_out2_im)  // sfix11
                                    );
 
-  assign Out21_re = SeventhStage10_out1_re;
 
-  assign Out21_im = SeventhStage10_out1_im;
 
   SeventhStage11 u_SeventhStage11 (.In1_re(In89_re),  // sfix13_En3
                                    .In1_im(In89_im),  // sfix13_En3
@@ -1746,9 +1724,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage11_out2_im)  // sfix11
                                    );
 
-  assign Out23_re = SeventhStage11_out1_re;
 
-  assign Out23_im = SeventhStage11_out1_im;
 
   SeventhStage12 u_SeventhStage12 (.In1_re(In81_re),  // sfix13_En3
                                    .In1_im(In81_im),  // sfix13_En3
@@ -1762,9 +1738,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage12_out2_im)  // sfix11
                                    );
 
-  assign Out25_re = SeventhStage12_out1_re;
 
-  assign Out25_im = SeventhStage12_out1_im;
 
   SeventhStage13 u_SeventhStage13 (.In1_re(In91_re),  // sfix13_En3
                                    .In1_im(In91_im),  // sfix13_En3
@@ -1778,9 +1752,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage13_out2_im)  // sfix11
                                    );
 
-  assign Out27_re = SeventhStage13_out1_re;
 
-  assign Out27_im = SeventhStage13_out1_im;
 
   SeventhStage14 u_SeventhStage14 (.In1_re(In93_re),  // sfix13_En3
                                    .In1_im(In93_im),  // sfix13_En3
@@ -1794,9 +1766,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage14_out2_im)  // sfix11
                                    );
 
-  assign Out29_re = SeventhStage14_out1_re;
 
-  assign Out29_im = SeventhStage14_out1_im;
 
   SeventhStage15 u_SeventhStage15 (.In1_re(In95_re),  // sfix13_En3
                                    .In1_im(In95_im),  // sfix13_En3
@@ -1810,9 +1780,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage15_out2_im)  // sfix11
                                    );
 
-  assign Out31_re = SeventhStage15_out1_re;
 
-  assign Out31_im = SeventhStage15_out1_im;
 
   SeventhStage16 u_SeventhStage16 (.In1_re(In97_re),  // sfix13_En3
                                    .In1_im(In97_im),  // sfix13_En3
@@ -1826,9 +1794,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage16_out2_im)  // sfix11
                                    );
 
-  assign Out33_re = SeventhStage16_out1_re;
 
-  assign Out33_im = SeventhStage16_out1_im;
 
   SeventhStage17 u_SeventhStage17 (.In1_re(In99_re),  // sfix13_En3
                                    .In1_im(In99_im),  // sfix13_En3
@@ -1842,9 +1808,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage17_out2_im)  // sfix11
                                    );
 
-  assign Out35_re = SeventhStage17_out1_re;
 
-  assign Out35_im = SeventhStage17_out1_im;
 
   SeventhStage24 u_SeventhStage24 (.In1_re(In101_re),  // sfix13_En3
                                    .In1_im(In101_im),  // sfix13_En3
@@ -1858,9 +1822,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage24_out2_im)  // sfix11
                                    );
 
-  assign Out37_re = SeventhStage24_out1_re;
 
-  assign Out37_im = SeventhStage24_out1_im;
 
   SeventhStage25 u_SeventhStage25 (.In1_re(In103_re),  // sfix13_En3
                                    .In1_im(In103_im),  // sfix13_En3
@@ -1874,9 +1836,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage25_out2_im)  // sfix11
                                    );
 
-  assign Out39_re = SeventhStage25_out1_re;
 
-  assign Out39_im = SeventhStage25_out1_im;
 
   SeventhStage26 u_SeventhStage26 (.In1_re(In105_re),  // sfix13_En3
                                    .In1_im(In105_im),  // sfix13_En3
@@ -1890,9 +1850,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage26_out2_im)  // sfix11
                                    );
 
-  assign Out41_re = SeventhStage26_out1_re;
 
-  assign Out41_im = SeventhStage26_out1_im;
 
   SeventhStage27 u_SeventhStage27 (.In1_re(In107_re),  // sfix13_En3
                                    .In1_im(In107_im),  // sfix13_En3
@@ -1906,9 +1864,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage27_out2_im)  // sfix11
                                    );
 
-  assign Out43_re = SeventhStage27_out1_re;
 
-  assign Out43_im = SeventhStage27_out1_im;
 
   SeventhStage28 u_SeventhStage28 (.In1_re(In109_re),  // sfix13_En3
                                    .In1_im(In109_im),  // sfix13_En3
@@ -1922,9 +1878,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage28_out2_im)  // sfix11
                                    );
 
-  assign Out45_re = SeventhStage28_out1_re;
 
-  assign Out45_im = SeventhStage28_out1_im;
 
   SeventhStage29 u_SeventhStage29 (.In1_re(In111_re),  // sfix13_En3
                                    .In1_im(In111_im),  // sfix13_En3
@@ -1938,9 +1892,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage29_out2_im)  // sfix11
                                    );
 
-  assign Out47_re = SeventhStage29_out1_re;
 
-  assign Out47_im = SeventhStage29_out1_im;
 
   SeventhStage30 u_SeventhStage30 (.In1_re(In113_re),  // sfix13_En3
                                    .In1_im(In113_im),  // sfix13_En3
@@ -1954,9 +1906,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage30_out2_im)  // sfix11
                                    );
 
-  assign Out49_re = SeventhStage30_out1_re;
 
-  assign Out49_im = SeventhStage30_out1_im;
 
   SeventhStage31 u_SeventhStage31 (.In1_re(In115_re),  // sfix13_En3
                                    .In1_im(In115_im),  // sfix13_En3
@@ -1970,9 +1920,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage31_out2_im)  // sfix11
                                    );
 
-  assign Out51_re = SeventhStage31_out1_re;
 
-  assign Out51_im = SeventhStage31_out1_im;
 
   SeventhStage18 u_SeventhStage18 (.In1_re(In117_re),  // sfix13_En3
                                    .In1_im(In117_im),  // sfix13_En3
@@ -1986,9 +1934,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage18_out2_im)  // sfix11
                                    );
 
-  assign Out53_re = SeventhStage18_out1_re;
 
-  assign Out53_im = SeventhStage18_out1_im;
 
   SeventhStage19 u_SeventhStage19 (.In1_re(In119_re),  // sfix13_En3
                                    .In1_im(In119_im),  // sfix13_En3
@@ -2002,9 +1948,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage19_out2_im)  // sfix11
                                    );
 
-  assign Out55_re = SeventhStage19_out1_re;
 
-  assign Out55_im = SeventhStage19_out1_im;
 
   SeventhStage20 u_SeventhStage20 (.In1_re(In121_re),  // sfix13_En3
                                    .In1_im(In121_im),  // sfix13_En3
@@ -2018,9 +1962,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage20_out2_im)  // sfix11
                                    );
 
-  assign Out57_re = SeventhStage20_out1_re;
 
-  assign Out57_im = SeventhStage20_out1_im;
 
   SeventhStage21 u_SeventhStage21 (.In1_re(In123_re),  // sfix13_En3
                                    .In1_im(In123_im),  // sfix13_En3
@@ -2034,9 +1976,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage21_out2_im)  // sfix11
                                    );
 
-  assign Out59_re = SeventhStage21_out1_re;
 
-  assign Out59_im = SeventhStage21_out1_im;
 
   SeventhStage22 u_SeventhStage22 (.In1_re(In125_re),  // sfix13_En3
                                    .In1_im(In125_im),  // sfix13_En3
@@ -2050,9 +1990,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage22_out2_im)  // sfix11
                                    );
 
-  assign Out61_re = SeventhStage22_out1_re;
 
-  assign Out61_im = SeventhStage22_out1_im;
 
   SeventhStage23 u_SeventhStage23 (.In1_re(In127_re),  // sfix13_En3
                                    .In1_im(In127_im),  // sfix13_En3
@@ -2066,9 +2004,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage23_out2_im)  // sfix11
                                    );
 
-  assign Out63_re = SeventhStage23_out1_re;
 
-  assign Out63_im = SeventhStage23_out1_im;
 
   SeventhStage32 u_SeventhStage32 (.In1_re(In129_re),  // sfix13_En3
                                    .In1_im(In129_im),  // sfix13_En3
@@ -2082,9 +2018,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage32_out2_im)  // sfix11
                                    );
 
-  assign Out65_re = SeventhStage32_out1_re;
 
-  assign Out65_im = SeventhStage32_out1_im;
 
   SeventhStage33 u_SeventhStage33 (.In1_re(In131_re),  // sfix13_En3
                                    .In1_im(In131_im),  // sfix13_En3
@@ -2098,9 +2032,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage33_out2_im)  // sfix11
                                    );
 
-  assign Out67_re = SeventhStage33_out1_re;
 
-  assign Out67_im = SeventhStage33_out1_im;
 
   SeventhStage44 u_SeventhStage44 (.In1_re(In133_re),  // sfix13_En3
                                    .In1_im(In133_im),  // sfix13_En3
@@ -2114,9 +2046,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage44_out2_im)  // sfix11
                                    );
 
-  assign Out69_re = SeventhStage44_out1_re;
 
-  assign Out69_im = SeventhStage44_out1_im;
 
   SeventhStage55 u_SeventhStage55 (.In1_re(In135_re),  // sfix13_En3
                                    .In1_im(In135_im),  // sfix13_En3
@@ -2130,9 +2060,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage55_out2_im)  // sfix11
                                    );
 
-  assign Out71_re = SeventhStage55_out1_re;
 
-  assign Out71_im = SeventhStage55_out1_im;
 
   SeventhStage58 u_SeventhStage58 (.In1_re(In137_re),  // sfix13_En3
                                    .In1_im(In137_im),  // sfix13_En3
@@ -2146,9 +2074,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage58_out2_im)  // sfix11
                                    );
 
-  assign Out73_re = SeventhStage58_out1_re;
 
-  assign Out73_im = SeventhStage58_out1_im;
 
   SeventhStage59 u_SeventhStage59 (.In1_re(In139_re),  // sfix13_En3
                                    .In1_im(In139_im),  // sfix13_En3
@@ -2162,9 +2088,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage59_out2_im)  // sfix11
                                    );
 
-  assign Out75_re = SeventhStage59_out1_re;
 
-  assign Out75_im = SeventhStage59_out1_im;
 
   SeventhStage60 u_SeventhStage60 (.In1_re(In141_re),  // sfix13_En3
                                    .In1_im(In141_im),  // sfix13_En3
@@ -2178,9 +2102,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage60_out2_im)  // sfix11
                                    );
 
-  assign Out77_re = SeventhStage60_out1_re;
 
-  assign Out77_im = SeventhStage60_out1_im;
 
   SeventhStage61 u_SeventhStage61 (.In1_re(In143_re),  // sfix13_En3
                                    .In1_im(In143_im),  // sfix13_En3
@@ -2194,9 +2116,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage61_out2_im)  // sfix11
                                    );
 
-  assign Out79_re = SeventhStage61_out1_re;
 
-  assign Out79_im = SeventhStage61_out1_im;
 
   SeventhStage62 u_SeventhStage62 (.In1_re(In145_re),  // sfix13_En3
                                    .In1_im(In145_im),  // sfix13_En3
@@ -2210,9 +2130,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage62_out2_im)  // sfix11
                                    );
 
-  assign Out81_re = SeventhStage62_out1_re;
 
-  assign Out81_im = SeventhStage62_out1_im;
 
   SeventhStage63 u_SeventhStage63 (.In1_re(In147_re),  // sfix13_En3
                                    .In1_im(In147_im),  // sfix13_En3
@@ -2226,9 +2144,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage63_out2_im)  // sfix11
                                    );
 
-  assign Out83_re = SeventhStage63_out1_re;
 
-  assign Out83_im = SeventhStage63_out1_im;
 
   SeventhStage34 u_SeventhStage34 (.In1_re(In149_re),  // sfix13_En3
                                    .In1_im(In149_im),  // sfix13_En3
@@ -2242,9 +2158,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage34_out2_im)  // sfix11
                                    );
 
-  assign Out85_re = SeventhStage34_out1_re;
 
-  assign Out85_im = SeventhStage34_out1_im;
 
   SeventhStage35 u_SeventhStage35 (.In1_re(In151_re),  // sfix13_En3
                                    .In1_im(In151_im),  // sfix13_En3
@@ -2258,9 +2172,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage35_out2_im)  // sfix11
                                    );
 
-  assign Out87_re = SeventhStage35_out1_re;
 
-  assign Out87_im = SeventhStage35_out1_im;
 
   SeventhStage36 u_SeventhStage36 (.In1_re(In153_re),  // sfix13_En3
                                    .In1_im(In153_im),  // sfix13_En3
@@ -2274,9 +2186,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage36_out2_im)  // sfix11
                                    );
 
-  assign Out89_re = SeventhStage36_out1_re;
 
-  assign Out89_im = SeventhStage36_out1_im;
 
   SeventhStage37 u_SeventhStage37 (.In1_re(In155_re),  // sfix13_En3
                                    .In1_im(In155_im),  // sfix13_En3
@@ -2290,9 +2200,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage37_out2_im)  // sfix11
                                    );
 
-  assign Out91_re = SeventhStage37_out1_re;
 
-  assign Out91_im = SeventhStage37_out1_im;
 
   SeventhStage38 u_SeventhStage38 (.In1_re(In157_re),  // sfix13_En3
                                    .In1_im(In157_im),  // sfix13_En3
@@ -2306,9 +2214,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage38_out2_im)  // sfix11
                                    );
 
-  assign Out93_re = SeventhStage38_out1_re;
 
-  assign Out93_im = SeventhStage38_out1_im;
 
   SeventhStage39 u_SeventhStage39 (.In1_re(In159_re),  // sfix13_En3
                                    .In1_im(In159_im),  // sfix13_En3
@@ -2322,9 +2228,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage39_out2_im)  // sfix11
                                    );
 
-  assign Out95_re = SeventhStage39_out1_re;
 
-  assign Out95_im = SeventhStage39_out1_im;
 
   SeventhStage40 u_SeventhStage40 (.In1_re(In161_re),  // sfix13_En3
                                    .In1_im(In161_im),  // sfix13_En3
@@ -2338,9 +2242,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage40_out2_im)  // sfix11
                                    );
 
-  assign Out97_re = SeventhStage40_out1_re;
 
-  assign Out97_im = SeventhStage40_out1_im;
 
   SeventhStage41 u_SeventhStage41 (.In1_re(In163_re),  // sfix13_En3
                                    .In1_im(In163_im),  // sfix13_En3
@@ -2354,9 +2256,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage41_out2_im)  // sfix11
                                    );
 
-  assign Out99_re = SeventhStage41_out1_re;
 
-  assign Out99_im = SeventhStage41_out1_im;
 
   SeventhStage49 u_SeventhStage49 (.In1_re(In165_re),  // sfix13_En3
                                    .In1_im(In165_im),  // sfix13_En3
@@ -2370,9 +2270,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage49_out2_im)  // sfix11
                                    );
 
-  assign Out101_re = SeventhStage49_out1_re;
 
-  assign Out101_im = SeventhStage49_out1_im;
 
   SeventhStage50 u_SeventhStage50 (.In1_re(In167_re),  // sfix13_En3
                                    .In1_im(In167_im),  // sfix13_En3
@@ -2386,9 +2284,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage50_out2_im)  // sfix11
                                    );
 
-  assign Out103_re = SeventhStage50_out1_re;
 
-  assign Out103_im = SeventhStage50_out1_im;
 
   SeventhStage51 u_SeventhStage51 (.In1_re(In169_re),  // sfix13_En3
                                    .In1_im(In169_im),  // sfix13_En3
@@ -2402,9 +2298,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage51_out2_im)  // sfix11
                                    );
 
-  assign Out105_re = SeventhStage51_out1_re;
 
-  assign Out105_im = SeventhStage51_out1_im;
 
   SeventhStage52 u_SeventhStage52 (.In1_re(In171_re),  // sfix13_En3
                                    .In1_im(In171_im),  // sfix13_En3
@@ -2418,9 +2312,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage52_out2_im)  // sfix11
                                    );
 
-  assign Out107_re = SeventhStage52_out1_re;
 
-  assign Out107_im = SeventhStage52_out1_im;
 
   SeventhStage53 u_SeventhStage53 (.In1_re(In173_re),  // sfix13_En3
                                    .In1_im(In173_im),  // sfix13_En3
@@ -2434,9 +2326,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage53_out2_im)  // sfix11
                                    );
 
-  assign Out109_re = SeventhStage53_out1_re;
 
-  assign Out109_im = SeventhStage53_out1_im;
 
   SeventhStage54 u_SeventhStage54 (.In1_re(In175_re),  // sfix13_En3
                                    .In1_im(In175_im),  // sfix13_En3
@@ -2450,9 +2340,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage54_out2_im)  // sfix11
                                    );
 
-  assign Out111_re = SeventhStage54_out1_re;
 
-  assign Out111_im = SeventhStage54_out1_im;
 
   SeventhStage56 u_SeventhStage56 (.In1_re(In177_re),  // sfix13_En3
                                    .In1_im(In177_im),  // sfix13_En3
@@ -2466,9 +2354,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage56_out2_im)  // sfix11
                                    );
 
-  assign Out113_re = SeventhStage56_out1_re;
 
-  assign Out113_im = SeventhStage56_out1_im;
 
   SeventhStage57 u_SeventhStage57 (.In1_re(In179_re),  // sfix13_En3
                                    .In1_im(In179_im),  // sfix13_En3
@@ -2482,9 +2368,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage57_out2_im)  // sfix11
                                    );
 
-  assign Out115_re = SeventhStage57_out1_re;
 
-  assign Out115_im = SeventhStage57_out1_im;
 
   SeventhStage42 u_SeventhStage42 (.In1_re(In181_re),  // sfix13_En3
                                    .In1_im(In181_im),  // sfix13_En3
@@ -2498,9 +2382,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage42_out2_im)  // sfix11
                                    );
 
-  assign Out117_re = SeventhStage42_out1_re;
 
-  assign Out117_im = SeventhStage42_out1_im;
 
   SeventhStage43 u_SeventhStage43 (.In1_re(In183_re),  // sfix13_En3
                                    .In1_im(In183_im),  // sfix13_En3
@@ -2514,9 +2396,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage43_out2_im)  // sfix11
                                    );
 
-  assign Out119_re = SeventhStage43_out1_re;
 
-  assign Out119_im = SeventhStage43_out1_im;
 
   SeventhStage45 u_SeventhStage45 (.In1_re(In185_re),  // sfix13_En3
                                    .In1_im(In185_im),  // sfix13_En3
@@ -2530,9 +2410,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage45_out2_im)  // sfix11
                                    );
 
-  assign Out121_re = SeventhStage45_out1_re;
 
-  assign Out121_im = SeventhStage45_out1_im;
 
   SeventhStage46 u_SeventhStage46 (.In1_re(In187_re),  // sfix13_En3
                                    .In1_im(In187_im),  // sfix13_En3
@@ -2546,9 +2424,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage46_out2_im)  // sfix11
                                    );
 
-  assign Out123_re = SeventhStage46_out1_re;
 
-  assign Out123_im = SeventhStage46_out1_im;
 
   SeventhStage47 u_SeventhStage47 (.In1_re(In189_re),  // sfix13_En3
                                    .In1_im(In189_im),  // sfix13_En3
@@ -2562,9 +2438,7 @@ module alpha128_input_7_step
                                    .Out2_im(SeventhStage47_out2_im)  // sfix11
                                    );
 
-  assign Out125_re = SeventhStage47_out1_re;
 
-  assign Out125_im = SeventhStage47_out1_im;
 
   SeventhStage48 u_SeventhStage48 (.In1_re(In191_re),  // sfix13_En3
                                    .In1_im(In191_im),  // sfix13_En3
@@ -2577,266 +2451,263 @@ module alpha128_input_7_step
                                    .Out2_re(SeventhStage48_out2_re),  // sfix11
                                    .Out2_im(SeventhStage48_out2_im)  // sfix11
                                    );
-
-  assign Out127_re = SeventhStage48_out1_re;
-
-  assign Out127_im = SeventhStage48_out1_im;
-
-  assign Out2_re = SeventhStage_out2_re;
-
-  assign Out2_im = SeventhStage_out2_im;
-
-  assign Out4_re = SeventhStage1_out2_re;
-
-  assign Out4_im = SeventhStage1_out2_im;
-
-  assign Out6_re = SeventhStage2_out2_re;
-
-  assign Out6_im = SeventhStage2_out2_im;
-
-  assign Out8_re = SeventhStage3_out2_re;
-
-  assign Out8_im = SeventhStage3_out2_im;
-
-  assign Out10_re = SeventhStage4_out2_re;
-
-  assign Out10_im = SeventhStage4_out2_im;
-
-  assign Out12_re = SeventhStage5_out2_re;
-
-  assign Out12_im = SeventhStage5_out2_im;
-
-  assign Out14_re = SeventhStage6_out2_re;
-
-  assign Out14_im = SeventhStage6_out2_im;
-
-  assign Out16_re = SeventhStage7_out2_re;
-
-  assign Out16_im = SeventhStage7_out2_im;
-
-  assign Out18_re = SeventhStage8_out2_re;
-
-  assign Out18_im = SeventhStage8_out2_im;
-
-  assign Out20_re = SeventhStage9_out2_re;
-
-  assign Out20_im = SeventhStage9_out2_im;
-
-  assign Out22_re = SeventhStage10_out2_re;
-
-  assign Out22_im = SeventhStage10_out2_im;
-
-  assign Out24_re = SeventhStage11_out2_re;
-
-  assign Out24_im = SeventhStage11_out2_im;
-
-  assign Out26_re = SeventhStage12_out2_re;
-
-  assign Out26_im = SeventhStage12_out2_im;
-
-  assign Out28_re = SeventhStage13_out2_re;
-
-  assign Out28_im = SeventhStage13_out2_im;
-
-  assign Out30_re = SeventhStage14_out2_re;
-
-  assign Out30_im = SeventhStage14_out2_im;
-
-  assign Out32_re = SeventhStage15_out2_re;
-
-  assign Out32_im = SeventhStage15_out2_im;
-
-  assign Out34_re = SeventhStage16_out2_re;
-
-  assign Out34_im = SeventhStage16_out2_im;
-
-  assign Out36_re = SeventhStage17_out2_re;
-
-  assign Out36_im = SeventhStage17_out2_im;
-
-  assign Out38_re = SeventhStage24_out2_re;
-
-  assign Out38_im = SeventhStage24_out2_im;
-
-  assign Out40_re = SeventhStage25_out2_re;
-
-  assign Out40_im = SeventhStage25_out2_im;
-
-  assign Out42_re = SeventhStage26_out2_re;
-
-  assign Out42_im = SeventhStage26_out2_im;
-
-  assign Out44_re = SeventhStage27_out2_re;
-
-  assign Out44_im = SeventhStage27_out2_im;
-
-  assign Out46_re = SeventhStage28_out2_re;
-
-  assign Out46_im = SeventhStage28_out2_im;
-
-  assign Out48_re = SeventhStage29_out2_re;
-
-  assign Out48_im = SeventhStage29_out2_im;
-
-  assign Out50_re = SeventhStage30_out2_re;
-
-  assign Out50_im = SeventhStage30_out2_im;
-
-  assign Out52_re = SeventhStage31_out2_re;
-
-  assign Out52_im = SeventhStage31_out2_im;
-
-  assign Out54_re = SeventhStage18_out2_re;
-
-  assign Out54_im = SeventhStage18_out2_im;
-
-  assign Out56_re = SeventhStage19_out2_re;
-
-  assign Out56_im = SeventhStage19_out2_im;
-
-  assign Out58_re = SeventhStage20_out2_re;
-
-  assign Out58_im = SeventhStage20_out2_im;
-
-  assign Out60_re = SeventhStage21_out2_re;
-
-  assign Out60_im = SeventhStage21_out2_im;
-
-  assign Out62_re = SeventhStage22_out2_re;
-
-  assign Out62_im = SeventhStage22_out2_im;
-
-  assign Out64_re = SeventhStage23_out2_re;
-
-  assign Out64_im = SeventhStage23_out2_im;
-
-  assign Out66_re = SeventhStage32_out2_re;
-
-  assign Out66_im = SeventhStage32_out2_im;
-
-  assign Out68_re = SeventhStage33_out2_re;
-
-  assign Out68_im = SeventhStage33_out2_im;
-
-  assign Out70_re = SeventhStage44_out2_re;
-
-  assign Out70_im = SeventhStage44_out2_im;
-
-  assign Out72_re = SeventhStage55_out2_re;
-
-  assign Out72_im = SeventhStage55_out2_im;
-
-  assign Out74_re = SeventhStage58_out2_re;
-
-  assign Out74_im = SeventhStage58_out2_im;
-
-  assign Out76_re = SeventhStage59_out2_re;
-
-  assign Out76_im = SeventhStage59_out2_im;
-
-  assign Out78_re = SeventhStage60_out2_re;
-
-  assign Out78_im = SeventhStage60_out2_im;
-
-  assign Out80_re = SeventhStage61_out2_re;
-
-  assign Out80_im = SeventhStage61_out2_im;
-
-  assign Out82_re = SeventhStage62_out2_re;
-
-  assign Out82_im = SeventhStage62_out2_im;
-
-  assign Out84_re = SeventhStage63_out2_re;
-
-  assign Out84_im = SeventhStage63_out2_im;
-
-  assign Out86_re = SeventhStage34_out2_re;
-
-  assign Out86_im = SeventhStage34_out2_im;
-
-  assign Out88_re = SeventhStage35_out2_re;
-
-  assign Out88_im = SeventhStage35_out2_im;
-
-  assign Out90_re = SeventhStage36_out2_re;
-
-  assign Out90_im = SeventhStage36_out2_im;
-
-  assign Out92_re = SeventhStage37_out2_re;
-
-  assign Out92_im = SeventhStage37_out2_im;
-
-  assign Out94_re = SeventhStage38_out2_re;
-
-  assign Out94_im = SeventhStage38_out2_im;
-
-  assign Out96_re = SeventhStage39_out2_re;
-
-  assign Out96_im = SeventhStage39_out2_im;
-
-  assign Out98_re = SeventhStage40_out2_re;
-
-  assign Out98_im = SeventhStage40_out2_im;
-
-  assign Out100_re = SeventhStage41_out2_re;
-
-  assign Out100_im = SeventhStage41_out2_im;
-
-  assign Out102_re = SeventhStage49_out2_re;
-
-  assign Out102_im = SeventhStage49_out2_im;
-
-  assign Out104_re = SeventhStage50_out2_re;
-
-  assign Out104_im = SeventhStage50_out2_im;
-
-  assign Out106_re = SeventhStage51_out2_re;
-
-  assign Out106_im = SeventhStage51_out2_im;
-
-  assign Out108_re = SeventhStage52_out2_re;
-
-  assign Out108_im = SeventhStage52_out2_im;
-
-  assign Out110_re = SeventhStage53_out2_re;
-
-  assign Out110_im = SeventhStage53_out2_im;
-
-  assign Out112_re = SeventhStage54_out2_re;
-
-  assign Out112_im = SeventhStage54_out2_im;
-
-  assign Out114_re = SeventhStage56_out2_re;
-
-  assign Out114_im = SeventhStage56_out2_im;
-
-  assign Out116_re = SeventhStage57_out2_re;
-
-  assign Out116_im = SeventhStage57_out2_im;
-
-  assign Out118_re = SeventhStage42_out2_re;
-
-  assign Out118_im = SeventhStage42_out2_im;
-
-  assign Out120_re = SeventhStage43_out2_re;
-
-  assign Out120_im = SeventhStage43_out2_im;
-
-  assign Out122_re = SeventhStage45_out2_re;
-
-  assign Out122_im = SeventhStage45_out2_im;
-
-  assign Out124_re = SeventhStage46_out2_re;
-
-  assign Out124_im = SeventhStage46_out2_im;
-
-  assign Out126_re = SeventhStage47_out2_re;
-
-  assign Out126_im = SeventhStage47_out2_im;
-
-  assign Out128_re = SeventhStage48_out2_re;
-
-  assign Out128_im = SeventhStage48_out2_im;
-
-endmodule  // alpha128_input_7_step
+	always @(posedge clk) begin
+	Out1_re <= SeventhStage_out1_re;
+  Out1_im <= SeventhStage_out1_im;
+   Out3_re <= SeventhStage1_out1_re;
+   Out3_im <= SeventhStage1_out1_im;
+   Out5_re <= SeventhStage2_out1_re;
+   Out5_im <= SeventhStage2_out1_im;
+   Out7_re <= SeventhStage3_out1_re;
+   Out7_im <= SeventhStage3_out1_im;
+   Out9_re <= SeventhStage4_out1_re;
+   Out9_im <= SeventhStage4_out1_im;
+   Out11_re <= SeventhStage5_out1_re;
+   Out11_im <= SeventhStage5_out1_im;
+   Out13_re <= SeventhStage6_out1_re;
+   Out13_im <= SeventhStage6_out1_im;
+   Out15_re <= SeventhStage7_out1_re;
+   Out15_im <= SeventhStage7_out1_im;
+   Out17_re <= SeventhStage8_out1_re;
+   Out17_im <= SeventhStage8_out1_im;
+   Out19_re <= SeventhStage9_out1_re;
+   Out19_im <= SeventhStage9_out1_im;
+   Out21_re <= SeventhStage10_out1_re;
+   Out21_im <= SeventhStage10_out1_im;
+   Out23_re <= SeventhStage11_out1_re;
+   Out23_im <= SeventhStage11_out1_im;
+   Out25_re <= SeventhStage12_out1_re;
+   Out25_im <= SeventhStage12_out1_im;
+   Out27_re <= SeventhStage13_out1_re;
+   Out27_im <= SeventhStage13_out1_im;
+   Out29_re <= SeventhStage14_out1_re;
+   Out29_im <= SeventhStage14_out1_im;
+   Out31_re <= SeventhStage15_out1_re;
+   Out31_im <= SeventhStage15_out1_im;
+   Out33_re <= SeventhStage16_out1_re;
+   Out33_im <= SeventhStage16_out1_im;
+   Out35_re <= SeventhStage17_out1_re;
+   Out35_im <= SeventhStage17_out1_im;
+   Out37_re <= SeventhStage24_out1_re;
+   Out37_im <= SeventhStage24_out1_im;
+   Out39_re <= SeventhStage25_out1_re;
+   Out39_im <= SeventhStage25_out1_im;
+   Out41_re <= SeventhStage26_out1_re;
+   Out41_im <= SeventhStage26_out1_im;
+   Out43_re <= SeventhStage27_out1_re;
+   Out43_im <= SeventhStage27_out1_im;
+   Out45_re <= SeventhStage28_out1_re;
+   Out45_im <= SeventhStage28_out1_im;
+   Out47_re <= SeventhStage29_out1_re;
+   Out47_im <= SeventhStage29_out1_im;
+   Out49_re <= SeventhStage30_out1_re;
+   Out49_im <= SeventhStage30_out1_im;
+   Out51_re <= SeventhStage31_out1_re;
+   Out51_im <= SeventhStage31_out1_im;
+   Out53_re <= SeventhStage18_out1_re;
+   Out53_im <= SeventhStage18_out1_im;
+   Out55_re <= SeventhStage19_out1_re;
+   Out55_im <= SeventhStage19_out1_im;
+   Out57_re <= SeventhStage20_out1_re;
+   Out57_im <= SeventhStage20_out1_im;
+   Out59_re <= SeventhStage21_out1_re;
+   Out59_im <= SeventhStage21_out1_im;
+   Out61_re <= SeventhStage22_out1_re;
+   Out61_im <= SeventhStage22_out1_im;
+   Out63_re <= SeventhStage23_out1_re;
+   Out63_im <= SeventhStage23_out1_im;
+   Out65_re <= SeventhStage32_out1_re;
+   Out65_im <= SeventhStage32_out1_im;
+   Out67_re <= SeventhStage33_out1_re;
+   Out67_im <= SeventhStage33_out1_im;
+   Out69_re <= SeventhStage44_out1_re;
+   Out69_im <= SeventhStage44_out1_im;
+   Out71_re <= SeventhStage55_out1_re;
+   Out71_im <= SeventhStage55_out1_im;
+   Out73_re <= SeventhStage58_out1_re;
+   Out73_im <= SeventhStage58_out1_im;
+   Out75_re <= SeventhStage59_out1_re;
+   Out75_im <= SeventhStage59_out1_im;
+   Out77_re <= SeventhStage60_out1_re;
+   Out77_im <= SeventhStage60_out1_im;
+   Out79_re <= SeventhStage61_out1_re;
+   Out79_im <= SeventhStage61_out1_im;
+   Out81_re <= SeventhStage62_out1_re;
+   Out81_im <= SeventhStage62_out1_im;
+   Out83_re <= SeventhStage63_out1_re;
+   Out83_im <= SeventhStage63_out1_im;
+   Out85_re <= SeventhStage34_out1_re;
+   Out85_im <= SeventhStage34_out1_im;
+   Out87_re <= SeventhStage35_out1_re;
+   Out87_im <= SeventhStage35_out1_im;
+   Out89_re <= SeventhStage36_out1_re;
+   Out89_im <= SeventhStage36_out1_im;
+   Out91_re <= SeventhStage37_out1_re;
+   Out91_im <= SeventhStage37_out1_im;
+   Out93_re <= SeventhStage38_out1_re;
+   Out93_im <= SeventhStage38_out1_im;
+   Out95_re <= SeventhStage39_out1_re;
+   Out95_im <= SeventhStage39_out1_im;
+   Out97_re <= SeventhStage40_out1_re;
+   Out97_im <= SeventhStage40_out1_im;
+   Out99_re <= SeventhStage41_out1_re;
+   Out99_im <= SeventhStage41_out1_im;
+   Out101_re <= SeventhStage49_out1_re;
+   Out101_im <= SeventhStage49_out1_im;
+   Out103_re <= SeventhStage50_out1_re;
+   Out103_im <= SeventhStage50_out1_im;
+   Out105_re <= SeventhStage51_out1_re;
+   Out105_im <= SeventhStage51_out1_im;
+   Out107_re <= SeventhStage52_out1_re;
+   Out107_im <= SeventhStage52_out1_im;
+   Out109_re <= SeventhStage53_out1_re;
+   Out109_im <= SeventhStage53_out1_im;
+   Out111_re <= SeventhStage54_out1_re;
+   Out111_im <= SeventhStage54_out1_im;
+   Out113_re <= SeventhStage56_out1_re;
+   Out113_im <= SeventhStage56_out1_im;
+   Out115_re <= SeventhStage57_out1_re;
+   Out115_im <= SeventhStage57_out1_im;
+   Out117_re <= SeventhStage42_out1_re;
+   Out117_im <= SeventhStage42_out1_im;
+   Out119_re <= SeventhStage43_out1_re;
+   Out119_im <= SeventhStage43_out1_im;
+   Out121_re <= SeventhStage45_out1_re;
+   Out121_im <= SeventhStage45_out1_im;
+   Out123_re <= SeventhStage46_out1_re;
+   Out123_im <= SeventhStage46_out1_im;
+   Out125_re <= SeventhStage47_out1_re;
+   Out125_im <= SeventhStage47_out1_im;
+   Out127_re <= SeventhStage48_out1_re;
+   Out127_im <= SeventhStage48_out1_im;
+   Out2_re <= SeventhStage_out2_re;
+   Out2_im <= SeventhStage_out2_im;
+   Out4_re <= SeventhStage1_out2_re;
+   Out4_im <= SeventhStage1_out2_im;
+   Out6_re <= SeventhStage2_out2_re;
+   Out6_im <= SeventhStage2_out2_im;
+   Out8_re <= SeventhStage3_out2_re;
+   Out8_im <= SeventhStage3_out2_im;
+   Out10_re <= SeventhStage4_out2_re;
+   Out10_im <= SeventhStage4_out2_im;
+   Out12_re <= SeventhStage5_out2_re;
+   Out12_im <= SeventhStage5_out2_im;
+   Out14_re <= SeventhStage6_out2_re;
+   Out14_im <= SeventhStage6_out2_im;
+   Out16_re <= SeventhStage7_out2_re;
+   Out16_im <= SeventhStage7_out2_im;
+   Out18_re <= SeventhStage8_out2_re;
+   Out18_im <= SeventhStage8_out2_im;
+   Out20_re <= SeventhStage9_out2_re;
+   Out20_im <= SeventhStage9_out2_im;
+   Out22_re <= SeventhStage10_out2_re;
+   Out22_im <= SeventhStage10_out2_im;
+   Out24_re <= SeventhStage11_out2_re;
+   Out24_im <= SeventhStage11_out2_im;
+   Out26_re <= SeventhStage12_out2_re;
+   Out26_im <= SeventhStage12_out2_im;
+   Out28_re <= SeventhStage13_out2_re;
+   Out28_im <= SeventhStage13_out2_im;
+   Out30_re <= SeventhStage14_out2_re;
+   Out30_im <= SeventhStage14_out2_im;
+   Out32_re <= SeventhStage15_out2_re;
+   Out32_im <= SeventhStage15_out2_im;
+   Out34_re <= SeventhStage16_out2_re;
+   Out34_im <= SeventhStage16_out2_im;
+   Out36_re <= SeventhStage17_out2_re;
+   Out36_im <= SeventhStage17_out2_im;
+   Out38_re <= SeventhStage24_out2_re;
+   Out38_im <= SeventhStage24_out2_im;
+   Out40_re <= SeventhStage25_out2_re;
+   Out40_im <= SeventhStage25_out2_im;
+   Out42_re <= SeventhStage26_out2_re;
+   Out42_im <= SeventhStage26_out2_im;
+   Out44_re <= SeventhStage27_out2_re;
+   Out44_im <= SeventhStage27_out2_im;
+   Out46_re <= SeventhStage28_out2_re;
+   Out46_im <= SeventhStage28_out2_im;
+   Out48_re <= SeventhStage29_out2_re;
+   Out48_im <= SeventhStage29_out2_im;
+   Out50_re <= SeventhStage30_out2_re;
+   Out50_im <= SeventhStage30_out2_im;
+   Out52_re <= SeventhStage31_out2_re;
+   Out52_im <= SeventhStage31_out2_im;
+   Out54_re <= SeventhStage18_out2_re;
+   Out54_im <= SeventhStage18_out2_im;
+   Out56_re <= SeventhStage19_out2_re;
+   Out56_im <= SeventhStage19_out2_im;
+   Out58_re <= SeventhStage20_out2_re;
+   Out58_im <= SeventhStage20_out2_im;
+   Out60_re <= SeventhStage21_out2_re;
+   Out60_im <= SeventhStage21_out2_im;
+   Out62_re <= SeventhStage22_out2_re;
+   Out62_im <= SeventhStage22_out2_im;
+   Out64_re <= SeventhStage23_out2_re;
+   Out64_im <= SeventhStage23_out2_im;
+   Out66_re <= SeventhStage32_out2_re;
+   Out66_im <= SeventhStage32_out2_im;
+   Out68_re <= SeventhStage33_out2_re;
+   Out68_im <= SeventhStage33_out2_im;
+   Out70_re <= SeventhStage44_out2_re;
+   Out70_im <= SeventhStage44_out2_im;
+   Out72_re <= SeventhStage55_out2_re;
+   Out72_im <= SeventhStage55_out2_im;
+   Out74_re <= SeventhStage58_out2_re;
+   Out74_im <= SeventhStage58_out2_im;
+   Out76_re <= SeventhStage59_out2_re;
+   Out76_im <= SeventhStage59_out2_im;
+   Out78_re <= SeventhStage60_out2_re;
+   Out78_im <= SeventhStage60_out2_im;
+   Out80_re <= SeventhStage61_out2_re;
+   Out80_im <= SeventhStage61_out2_im;
+   Out82_re <= SeventhStage62_out2_re;
+   Out82_im <= SeventhStage62_out2_im;
+   Out84_re <= SeventhStage63_out2_re;
+   Out84_im <= SeventhStage63_out2_im;
+   Out86_re <= SeventhStage34_out2_re;
+   Out86_im <= SeventhStage34_out2_im;
+   Out88_re <= SeventhStage35_out2_re;
+   Out88_im <= SeventhStage35_out2_im;
+   Out90_re <= SeventhStage36_out2_re;
+   Out90_im <= SeventhStage36_out2_im;
+   Out92_re <= SeventhStage37_out2_re;
+   Out92_im <= SeventhStage37_out2_im;
+   Out94_re <= SeventhStage38_out2_re;
+   Out94_im <= SeventhStage38_out2_im;
+   Out96_re <= SeventhStage39_out2_re;
+   Out96_im <= SeventhStage39_out2_im;
+   Out98_re <= SeventhStage40_out2_re;
+   Out98_im <= SeventhStage40_out2_im;
+   Out100_re <= SeventhStage41_out2_re;
+   Out100_im <= SeventhStage41_out2_im;
+   Out102_re <= SeventhStage49_out2_re;
+   Out102_im <= SeventhStage49_out2_im;
+   Out104_re <= SeventhStage50_out2_re;
+   Out104_im <= SeventhStage50_out2_im;
+   Out106_re <= SeventhStage51_out2_re;
+   Out106_im <= SeventhStage51_out2_im;
+   Out108_re <= SeventhStage52_out2_re;
+   Out108_im <= SeventhStage52_out2_im;
+   Out110_re <= SeventhStage53_out2_re;
+   Out110_im <= SeventhStage53_out2_im;
+   Out112_re <= SeventhStage54_out2_re;
+   Out112_im <= SeventhStage54_out2_im;
+   Out114_re <= SeventhStage56_out2_re;
+   Out114_im <= SeventhStage56_out2_im;
+   Out116_re <= SeventhStage57_out2_re;
+   Out116_im <= SeventhStage57_out2_im;
+   Out118_re <= SeventhStage42_out2_re;
+   Out118_im <= SeventhStage42_out2_im;
+   Out120_re <= SeventhStage43_out2_re;
+   Out120_im <= SeventhStage43_out2_im;
+   Out122_re <= SeventhStage45_out2_re;
+   Out122_im <= SeventhStage45_out2_im;
+   Out124_re <= SeventhStage46_out2_re;
+   Out124_im <= SeventhStage46_out2_im;
+   Out126_re <= SeventhStage47_out2_re;
+   Out126_im <= SeventhStage47_out2_im;
+   Out128_re <= SeventhStage48_out2_re;
+   Out128_im <= SeventhStage48_out2_im;
+end
+endmodule  // alpha128_input_7_step   
 
